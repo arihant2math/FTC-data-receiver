@@ -11,15 +11,17 @@
         <p>Robot Position: (<span id="x"></span>, <span id="y"></span>)</p>
         <a href="/logs">Robot Logs</a>
         <script>
-            let x = $("#x");
-            let y = $("#y");
-            while(1===1) {
+            function updateRobotPosition() {
+                let x = $("#x");
+                let y = $("#y");
                 robotPosition = $.get("/robot-position");
-                robotPosition.done(function( data ) {
-                    x.innerHTML = data.x;
-                    y.innerHTML = data.y;
+                robotPosition.done(function (data) {
+                    x.html(data.x);
+                    y.html(data.y);
                 });
             }
+            updateRobotPosition();
+            setInterval(updateRobotPosition, 100);
         </script>
     </body>
 </html>
