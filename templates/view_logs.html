@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Logs</title>
+</head>
+<body>
+    <table>
+        {% for log in logs %}
+            <tr><td>{{ log.TAG }}</td><td>{{ log.message }}</td></tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
