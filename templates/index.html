@@ -8,7 +8,18 @@
         <link rel="stylesheet" href="/static/bootstrap-5.2.2/bootstrap-5.2.2-dist/css/bootstrap.css"/>
     </head>
     <body>
-        <a href="/logs">View the robot logs</a>
-        <br><a href="/robot-position">See the robot's current position</a>
+        <p>Robot Position: (<span id="x"></span>, <span id="y"></span>)</p>
+        <a href="/logs">Robot Logs</a>
+        <script>
+            let x = $("#x");
+            let y = $("#y");
+            while(1===1) {
+                robotPosition = $.get("/robot-position");
+                robotPosition.done(function( data ) {
+                    x.innerHTML = data.x;
+                    y.innerHTML = data.y;
+                });
+            }
+        </script>
     </body>
 </html>
