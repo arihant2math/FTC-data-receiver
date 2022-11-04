@@ -9,7 +9,7 @@
     </head>
     <body>
         <p>Robot Position: (<span id="x"></span>, <span id="y"></span>)</p>
-        <canvas width="300" height="300" id="canvas"></canvas>
+        <canvas width="576" height="576" id="canvas"></canvas>
         <br><a href="/logs">Robot Logs</a>
         <script>
             function updateRobotPosition() {
@@ -17,8 +17,8 @@
                 let y = $("#y");
                 robotPosition = $.get("/robot-position");
                 robotPosition.done(function (data) {
-                    x.html(data.x);
-                    y.html(data.y);
+                    x.html(data.x/6.35);
+                    y.html(data.y/6.35);
                     draw(data.x, data.y);
                 });
             }
@@ -28,7 +28,8 @@
               const canvas = document.getElementById('canvas');
               if (canvas.getContext) {
                 const ctx = canvas.getContext('2d');
-                ctx.fillRect(x+25, y+25, 5, 5);
+                ctx.clearRect(0, 0, ctx.height, ctx.width)
+                ctx.fillRect(x/6.35, y/6.35, 5, 5);
               }
             }
         </script>
