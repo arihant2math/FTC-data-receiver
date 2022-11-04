@@ -6,11 +6,32 @@
         <title>FTC data receiver</title>
         <script src="/static/jquery.min.js"></script>
         <link rel="stylesheet" href="/static/bootstrap-5.2.2/bootstrap-5.2.2-dist/css/bootstrap.css"/>
+        <style>
+            table {
+              border-collapse: collapse;
+              border: 2px solid #c8c8c8;
+              letter-spacing: 1px;
+              font-size: 0.8rem;
+            }
+
+            td, th {
+              border: 1px solid #bebebe;
+              padding: 10px 20px;
+            }
+
+            td {
+              text-align: center;
+            }
+        </style>
     </head>
     <body>
         <p>Robot Position: (<span id="x"></span>, <span id="y"></span>)</p>
         <canvas width="576" height="576" id="canvas"></canvas>
         <br><a href="/logs">Robot Logs</a>
+        <h1>Logs</h1>
+        <table>
+
+        </table>
         <script>
             function updateRobotPosition() {
                 let x = $("#x");
